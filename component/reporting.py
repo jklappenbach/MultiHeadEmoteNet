@@ -35,7 +35,21 @@ def print_classification_report(labels, preds, class_names):
     print(report)
 
 # -----------------------------
-# Plot
-plot_confusion_matrix(labels, preds, dataset.classes)
-acc_per_class = per_class_accuracy(labels, preds, dataset.classes)
-print_classification_report(labels, preds, dataset.classes)
+# Main function to run all reporting (optional convenience function)
+def generate_report(labels, preds, class_names):
+    """
+    Generate complete evaluation report with confusion matrix, 
+    per-class accuracy, and classification report.
+    
+    Args:
+        labels: True labels
+        preds: Predicted labels
+        class_names: List of class names
+        
+    Returns:
+        per_class_acc: Array of per-class accuracies
+    """
+    plot_confusion_matrix(labels, preds, class_names)
+    acc_per_class = per_class_accuracy(labels, preds, class_names)
+    print_classification_report(labels, preds, class_names)
+    return acc_per_class

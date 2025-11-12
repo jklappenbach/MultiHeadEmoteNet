@@ -3,7 +3,7 @@ import torch
 from efficientnet_pytorch import EfficientNet
 
 def _project_root_from_this_file():
-    # tool/efficient_net.py -> project root is parent of 'tool'
+    # component/efficient_net.py -> project root is parent of 'component'
     return os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 
 def load_efficientnet_weights_or_warn(model, device="gpu", strict=False):
