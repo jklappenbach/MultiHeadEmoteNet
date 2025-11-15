@@ -94,27 +94,29 @@ def generate_registry() -> None:
     # Convert existing entries to a dict for easy lookup
     existing_map = {ds["dataset_name"]: ds for ds in existing_data.get("datasets", [])}
     
-    for slug, dataset_name, loader_class in DATASETS:
+    for file_path, kaggle_key, dataset_name, loader_class in DATASETS:
         # Check if we already have this dataset
         if dataset_name in existing_map:
             collected.append(existing_map[dataset_name])
         
         try:
-            local_path = kagglehub.dataset_download(slug)
+            local_path = kagglehub.dataset_download(file_path)
             file_path_str = str(Path(local_path).resolve())
             logger.info(f"Path to dataset files ({dataset_name}): {file_path_str}")
             print(f"Path to dataset files ({dataset_name}): {file_path_str}")
             collected.append({
                 "dataset_name": dataset_name,
+                "kaggle_key": kaggle_key,
                 "file_path_str": file_path_str,
                 "loader_class": loader_class
             })
         except Exception as e:
             # Record as missing to keep track; you can filter later
-            logger.error(f"Failed to download {slug}: {e}")
-            print(f"Failed to download {slug}: {e}")
+            logger.error(f"Failed to download {file_path}: {e}")
+            print(f"Failed to download {file_path}: {e}")
             collected.append({
                 "dataset_name": dataset_name,
+                "kaggle_key": kaggle_key,
                 "file_path_str": "",
                 "loader_class": loader_class
             })

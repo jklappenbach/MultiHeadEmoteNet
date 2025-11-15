@@ -1,6 +1,5 @@
 import logging
 import time
-import uuid
 from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 

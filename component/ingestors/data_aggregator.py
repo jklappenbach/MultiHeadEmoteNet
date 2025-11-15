@@ -6,18 +6,9 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Dict, Optional, Tuple, Set
-
 import numpy as np
-
-try:
-    import h5py  # type: ignore
-except Exception:  # pragma: no cover
-    h5py = None
-
-try:
-    from PIL import Image  # type: ignore
-except Exception:  # pragma: no cover
-    Image = None
+import h5py  # type: ignore
+from PIL import Image  # type: ignore
 
 from component.ingestors.label_normalizer import normalize_label, load_or_init_registry, build_reverse_map, save_registry
 from component.ingestors.adaptor_base import BaseAdaptor
