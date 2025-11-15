@@ -3,27 +3,12 @@ from __future__ import annotations
 import io
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Any, Callable, Dict, List, Optional
 import h5py  # type: ignore
 import numpy as np
-
-try:
-    from PIL import Image  # type: ignore
-except Exception:  # pragma: no cover - optional at runtime
-    Image = None  # type: ignore
-
-# Optional plotting (for displaying example images per label)
-try:
-    import matplotlib.pyplot as plt  # type: ignore
-except Exception:  # pragma: no cover - optional at runtime
-    plt = None  # type: ignore
-
-try:
-    import torch
-    from torch.utils.data import Dataset
-except Exception:  # pragma: no cover - optional at runtime
-    torch = None  # type: ignore
-    Dataset = object  # type: ignore
+from PIL import Image  # type: ignore
+import matplotlib.pyplot as plt  # type: ignore
+from torch.utils.data import Dataset
 
 
 # -----------------------------------------------------------------------------
