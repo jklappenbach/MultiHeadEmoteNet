@@ -1,6 +1,5 @@
 import csv
 import logging
-import time
 from datetime import datetime, timezone
 from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
@@ -10,7 +9,7 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision import transforms
 
-from evaluation.ResEmoteNet.approach.ResEmoteNet import ResEmoteNet
+from eval.ResEmoteNet.approach.ResEmoteNet import ResEmoteNet
 from component.dataset.dataset import H5LabeledImageDataset
 
 # ------------------------------

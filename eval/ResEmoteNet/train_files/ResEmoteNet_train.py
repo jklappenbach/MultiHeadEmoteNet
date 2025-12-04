@@ -10,7 +10,7 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torchvision import transforms
 from tqdm import tqdm
 import os  # Import os module
-from evaluation.ResEmoteNet.approach.ResEmoteNet import ResEmoteNet
+from eval.ResEmoteNet.approach.ResEmoteNet import ResEmoteNet
 from component.dataset.split_utils import make_h5_loaders_stratified
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
